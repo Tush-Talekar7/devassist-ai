@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5000/db?options=-c%20timezone=Asia/Kolkata
+    username: VAISHU
+    password: TUSH
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+jwt:
+  secret: qwertyuioplkjhgazxcvbnmnbvcxzasdfghjklpoiuytrewqasdfghjklnbvcxzaqwertyuioplkjhgfdsazxcvbnjjhgfdsaqwertyuiop
+  expiration: 3600000
