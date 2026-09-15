@@ -2,12 +2,29 @@ spring:
   application:
     name: ai-service
 
+  datasource:
+    # Ensure this port matches your container host port (5433 if you followed earlier steps)
+    url: jdbc:postgresql://localhost:5435/devassist
+    username: devassist
+    password: devassist
+    driver-class-name: org.postgresql.Driver
+
   ai:
     ollama:
       base-url: http://localhost:11434
       chat:
         options:
           model: qwen3:1.7b
+      embedding:
+        options:
+          model: qwen3-embedding:0.6b
+
+    # vectorstore must be at this indentation level (sibling to ollama)
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        dimensions: 1024
+        distance-type: COSINE_DISTANCE
 
 server:
   port: 8082
