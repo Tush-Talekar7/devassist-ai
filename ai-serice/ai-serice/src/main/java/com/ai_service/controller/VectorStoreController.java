@@ -1,5 +1,6 @@
 package com.ai_service.controller;
 
+import com.ai_service.service.RagService;
 import com.ai_service.service.VectorStoreService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,17 +20,18 @@ import java.util.List;
 public class VectorStoreController {
 
     private final VectorStoreService vectorStoreService;
+    private final RagService ragService;
 
-    @PostMapping("/add")
-    public ResponseEntity<String> addText(@RequestParam String text) {
-        log.info("Adding the text into vector db");
-        vectorStoreService.addText(text);
-        return ResponseEntity.ok("Text added successfully");
-    }
+//    @PostMapping("/add")
+//    public ResponseEntity<String> addText(@RequestParam String text) {
+//        log.info("Adding the text into vector db");
+//        vectorStoreService.addText(text);
+//        return ResponseEntity.ok("Text added successfully");
+//    }
 
     @PostMapping("/search")
-    public ResponseEntity<List<Document>> search(@RequestParam String text){
+    public ResponseEntity<String> search(@RequestParam String text){
         log.info("Searching ....");
-        return ResponseEntity.ok(vectorStoreService.search(text));
+        return ResponseEntity.ok(ragService.answerQuestion(text));
     }
 }

@@ -18,4 +18,10 @@ public class ChatController {
         String response = aiService.chat(question);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/test-document/{id}")
+    public ResponseEntity<String> testDocumentDownload(@PathVariable Long id, @RequestHeader("Authorization") String authorization) {
+
+        return ResponseEntity.ok(aiService.testDocumentDownload(id, authorization));
+    }
 }
