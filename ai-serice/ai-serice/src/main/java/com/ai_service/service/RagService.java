@@ -26,6 +26,7 @@ public class RagService {
         // 1. Retrieve relevant chunks
         SearchRequest searchRequest = SearchRequest.builder()
                 .query(question)
+                .similarityThreshold(0.5)
                 .topK(3)
                 .build();
 
