@@ -26,6 +26,14 @@ public class DocumentService {
     private final DocumentRepository documentRepository;
     private final AIServiceClient aiServiceClient;
 
+    /**
+     * This method is used to upload the document.It will save the document metadata in postgre DB and then
+     * call the AI service to store it in vector DB.
+     * @param file holds the uploaded file
+     * @param userId holds the userID
+     * @return the entity object
+     * @throws IOException exception
+     */
     public Document uploadDocument(MultipartFile file, Long userId) throws IOException {
         log.info("Started uploading document ");
         String uploadDirectory = "uploads";
@@ -59,26 +67,4 @@ public class DocumentService {
         return document;
     }
 
-    public List<Document> getAllDocuments() {
-        return documentRepository.findAll();
-    }
-
-    public Document getDocumentById(Long id) {
-
-        return documentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Document not found"));
-    }
-
-    public void deleteDocument(Long id) {
-
-        Document document = getDocumentById(id);
-
-        try {
-            Files.deleteIfExists(Paths.get(document.getFilePath()));
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to delete file", e);
-        }
-
-        documentRepository.delete(document);
-    }
 }

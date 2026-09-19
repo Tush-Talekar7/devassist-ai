@@ -12,13 +12,12 @@ public class ChatController {
 
     private final AiService aiService;
 
-    @PostMapping("/chat")
-    public ResponseEntity<String> chat(@RequestParam String question) {
-
-        String response = aiService.chat(question);
-        return ResponseEntity.ok(response);
-    }
-
+    /**
+     * This API is used to return the document requested by the AI-Service.
+     * @param id holds the document ID
+     * @param authorization holds the JWT token
+     * @return response
+     */
     @GetMapping("/test-document/{id}")
     public ResponseEntity<String> testDocumentDownload(@PathVariable Long id, @RequestHeader("Authorization") String authorization) {
 

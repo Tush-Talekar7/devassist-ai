@@ -12,6 +12,12 @@ import org.springframework.web.client.RestClient;
 @Slf4j
 public class AIServiceClient {
     private final RestClient restClient;
+
+    /**
+     * This method will send the uploaded document to the AI-Service to store it in vector DB
+     * @param resource holds the uploaded document
+     * @return response
+     */
     public String sendDocument(Resource resource){
         try {
             restClient.post()

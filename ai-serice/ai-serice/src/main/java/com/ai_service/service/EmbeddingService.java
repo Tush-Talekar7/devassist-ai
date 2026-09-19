@@ -10,6 +10,11 @@ public class EmbeddingService {
 
     private final EmbeddingModel embeddingModel;
 
+    /**
+     * This will generate the embedding for the input question
+     * @param text holds the input question
+     * @return the vector array
+     */
     public float[] generateEmbedding(String text) {
         return embeddingModel.embed(text);
     }

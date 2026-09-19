@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 @Slf4j
 @RestController
@@ -26,6 +25,13 @@ public class DocumentController {
 
     private final DocumentService documentService;
 
+    /**
+     * This API handles the upload of document
+     * @param file holds the uploaded file
+     * @param userId holds the user ID
+     * @return response
+     * @throws IOException throw exception
+     */
     @PostMapping("/upload")
     public ResponseEntity<Document> uploadDocument(
             @RequestParam("file") MultipartFile file,
@@ -36,21 +42,12 @@ public class DocumentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(document);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Document>> getAllDocuments() {
 
-        return ResponseEntity.ok(
-                documentService.getAllDocuments()
-        );
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Document> getDocumentById(@PathVariable Long id) {
-
-        return ResponseEntity.ok(documentService.getDocumentById(id)
-        );
-    }
-
+    /**
+     * This API exposed for download the document from AI-service
+     * @param id holds the document ID
+     * @return the File
+     */
     @GetMapping("/download/{id}")
     public ResponseEntity<Resource> downLoadFile(@PathVariable Long id){
       try {
@@ -72,12 +69,4 @@ public class DocumentController {
       return null;
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDocument(
-            @PathVariable Long id) {
-
-        documentService.deleteDocument(id);
-
-        return ResponseEntity.noContent().build();
-    }
 }

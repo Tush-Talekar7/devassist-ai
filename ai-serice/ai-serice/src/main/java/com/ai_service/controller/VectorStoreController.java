@@ -29,6 +29,11 @@ public class VectorStoreController {
 //        return ResponseEntity.ok("Text added successfully");
 //    }
 
+    /**
+     * This API gives the response for the user questions
+     * @param text user question
+     * @return response
+     */
     @PostMapping("/search")
     public ResponseEntity<String> search(@RequestParam String text){
         log.info("Searching ....");

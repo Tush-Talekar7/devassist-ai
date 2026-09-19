@@ -22,22 +22,18 @@ public class AiService {
         this.pdfReaderService = pdfSer;
     }
 
-    public String chat(String question) {
-
-        return chatClient
-                .prompt()
-                .user(question)
-                .call()
-                .content();
-    }
-
-
+    /**
+     * Testing the download of the document from the document service.
+     * @param documentId it is the document id
+     * @param auth it will hold the authorization key that is jwt key
+     * @return response
+     */
     public String testDocumentDownload(Long documentId,String auth) {
         byte[] bytes = documentServiceClient.downloadDocument(documentId,auth);
         if (bytes == null) {
             return "Document download failed";
         }
-        log.info("Download successfull.....");
+        log.info("Download successfully.....");
         //pdfReaderService.processPdf(bytes,documentId);
 
         return "PDF read successfully: ";

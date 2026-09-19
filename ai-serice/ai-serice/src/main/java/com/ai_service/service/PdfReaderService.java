@@ -17,6 +17,9 @@ public class PdfReaderService {
 
     private final VectorStoreService vectorStoreService;
 
+    /**
+     * This method will readPDF from the tesdocs folder. It is a testing method.
+     */
     public void readPdf(){
         PagePdfDocumentReader pdfDocumentReader = new PagePdfDocumentReader("classpath:/testdocs/test.pdf");
 
@@ -31,6 +34,10 @@ public class PdfReaderService {
         }
     }
 
+    /**
+     * This method will make the chunks of the pdf and save it in vector DB.
+     * @param pdfBytes holds the PDF in bytes
+     */
     public void processPdf(byte[] pdfBytes) {
         try {
             log.info("---------Started processing the document ");

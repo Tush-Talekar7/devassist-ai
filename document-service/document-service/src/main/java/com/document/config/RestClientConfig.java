@@ -9,6 +9,7 @@ import java.util.concurrent.Executors;
 
 @Configuration
 public class RestClientConfig {
+
     @Bean
     public RestClient restClient() {
         return RestClient.builder()
@@ -16,8 +17,4 @@ public class RestClientConfig {
                 .build();
     }
 
-    @Bean
-    public ExecutorService executorService(){
-        return Executors.newFixedThreadPool(1);
-    }
 }

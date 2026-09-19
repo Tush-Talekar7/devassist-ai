@@ -18,6 +18,10 @@ public class VectorStoreService {
     private final VectorStore vectorStore;
     private final TokenTextSplitter tokenTextSplitter;
 
+    /**
+     * This method used to add the list of documents in the vector
+     * @param documentList list of document
+     */
     public void addDocuments(List<Document> documentList) {
         log.info("Creating chunks of the input data ");
         List<Document> chunks = tokenTextSplitter.apply(documentList);
@@ -30,6 +34,11 @@ public class VectorStoreService {
         log.info("Successfully added the chunks ");
     }
 
+    /**
+     * This method used to search in vector DB
+     * @param query holds the user query
+     * @return the related chunks.
+     */
     public List<Document> search(String query) {
 
         SearchRequest searchRequest = SearchRequest.builder()
