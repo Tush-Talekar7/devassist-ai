@@ -1,4 +1,4 @@
-# DevAssist AI 🤖
+# DevAssist AI 
 
 DevAssist AI is a **Generative AI-powered document assistant** that allows organizations to build a searchable knowledge base from internal documents.
 
@@ -8,7 +8,7 @@ The project is built as a **Java/Spring Boot microservices application** with Sp
 
 ---
 
-## 🎯 Project Objective
+##  Project Objective
 
 The goal of DevAssist AI is to build a practical enterprise-style GenAI application while combining:
 
@@ -29,7 +29,7 @@ The project is also being developed as a hands-on learning project to understand
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Current high-level flow
 
@@ -86,7 +86,7 @@ The project is also being developed as a hands-on learning project to understand
 
 ---
 
-# ✨ Current Features
+#  Current Features
 
 ## 1. Authentication & Authorization
 
@@ -226,7 +226,7 @@ to control which chunks are passed to the LLM.
 
 ---
 
-# 🧠 Retrieval-Augmented Generation (RAG)
+#  Retrieval-Augmented Generation (RAG)
 
 DevAssist AI uses RAG instead of sending user questions directly to the LLM.
 
@@ -258,7 +258,7 @@ If the retrieved context does not contain enough information, the application in
 
 ---
 
-# 🤖 LLM Integration
+#  LLM Integration
 
 The project currently uses **Ollama** for local LLM inference.
 
@@ -283,7 +283,7 @@ SearchRequest
 
 ---
 
-# 🛠️ Technology Stack
+#  Technology Stack
 
 ### Backend
 
@@ -334,7 +334,7 @@ SearchRequest
 
 ---
 
-# 📦 Microservices
+#  Microservices
 
 The application is being developed using a microservices architecture.
 
@@ -395,7 +395,7 @@ Planned service discovery component for the microservices architecture.
 
 ---
 
-# 🔐 Security
+# Security
 
 The application uses Spring Security and JWT authentication.
 
@@ -417,7 +417,7 @@ The document service validates JWT-based authentication before allowing protecte
 
 ---
 
-# 🚀 Current Project Status
+#  Current Project Status
 
 ### Completed
 
@@ -532,7 +532,7 @@ Through this project, the following concepts are being explored practically:
 
 ---
 
-# 🎯 Project Goal
+#  Project Goal
 
 DevAssist AI is being developed as a practical demonstration of how **Java backend engineering and Generative AI can be combined to build intelligent enterprise applications**.
 
@@ -540,7 +540,7 @@ The long-term goal is to create an enterprise-style AI assistant capable of answ
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Tushar Talekar**
 
