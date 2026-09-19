@@ -10,6 +10,7 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.print.Doc;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -65,6 +66,20 @@ public class DocumentService {
         String response = aiServiceClient.sendDocument(new ByteArrayResource(fileBytes));
         log.info("Received from AI-Service {}",response );
         return document;
+    }
+
+    /**
+     * This method will get the document by ID
+     * @param id holds the document ID
+     * @return document
+     */
+    public Document getDocumentById(Long id){
+        try{
+            return documentRepository.findById(id).orElse(null);
+        }catch (RuntimeException e){
+            log.error("Exception occurred {}", String.valueOf(e));
+        }
+        return null;
     }
 
 }
